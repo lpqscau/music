@@ -1,6 +1,22 @@
 <h1>To Kin</h1>
-<a href="http://picosong.com/media/songs/5905089856de1eaed6702ce86cd9df83.mp3" download="走进西藏 - Live.mp3" edit="http://picosong.com/edit/9775db451e0c0e822a4b86b6d952d815">走进西藏 - Live.mp3</a>
-<br>
-<a href="http://picosong.com/wnfUp" download="刚好遇见你 - Live.mp3" edit="http://picosong.com/edit/82496e687e22a778358dc37318ff1457">刚好遇见你 - Live.mp3</a>
-<br>
-<a href="http://picosong.com/wnfdC" download="木兰星 - Live.mp3" edit="http://picosong.com/edit/fbc89d6fec5a8aeeaa7c445f18b2f7a7">木兰星 - Live.mp3</a>
+<script>
+var songs = [];
+//0-name, 1-short_url, 2-edit_url, 3-play_url
+songs.push(["走进西藏 - Live.mp3","http://picosong.com/wnfUz","http://picosong.com/edit/9775db451e0c0e822a4b86b6d952d815","http://picosong.com/media/songs/5905089856de1eaed6702ce86cd9df83.mp3"]);
+songs.push(["刚好遇见你 - Live.mp3","http://picosong.com/wnfUp","http://picosong.com/edit/82496e687e22a778358dc37318ff1457","http://picosong.com/media/songs/291aebde78c19cf4728e6ddbe12acbe9.mp3"]);
+songs.push(["木兰星 - Live.mp3","http://picosong.com/wnfdC","http://picosong.com/edit/fbc89d6fec5a8aeeaa7c445f18b2f7a7","http://picosong.com/media/songs/bdb3c44ab71ec2242a85ef291c959f80.mp3"]);
+
+function $(s) {return document.querySelector(s);}
+function ce(s) {return document.createElement(s);}
+window.onload = function() {
+  for(var i = 0; i < songs.length; i++) {
+    var item = ce("div");
+    item.style = "padding:10px 5px;";
+    item.innerHTML += songs[i][0]+' <a href="'+songs[i][3]+'" download="'+songs[i][0]+'">下载</a><br>';
+    item.innerHTML += '<audio src="'+songs[i][3]+'" controls></audio>';
+    $("#list").appendChild(item);
+  }
+}
+</script>
+
+<div id="list"></div>
